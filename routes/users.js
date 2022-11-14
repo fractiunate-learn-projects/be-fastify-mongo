@@ -8,6 +8,7 @@ const {
 
 const getUsersopts = {
   schema: {
+    tags: ['user', 'code'],
     response: {
       200: {
         type: "array",
@@ -26,6 +27,7 @@ const getUsersopts = {
 
 const getUserOpts = {
   schema: {
+    tags: ['user', 'code'],
     response: {
       200: {
         type: "object",
@@ -42,6 +44,7 @@ const getUserOpts = {
 
 const updateItemOpts = {
   schema: {
+    tags: ['user', 'code'],
     body: {
       type: "object",
       required: ["name", "age"],
@@ -63,6 +66,7 @@ const updateItemOpts = {
 };
 const postUserOpts = {
   schema: {
+    tags: ['user', 'code'],
     body: {
       type: "object",
       required: ["name", "age"],
@@ -86,6 +90,7 @@ const postUserOpts = {
 };
 const deleteUserOpts = {
   schema: {
+    tags: ['user', 'code'],
     response: {
       200: {
         type: "string",
