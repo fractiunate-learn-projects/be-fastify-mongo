@@ -1,6 +1,7 @@
+// @ts-nocheck
 const ObjectID = require("mongodb").ObjectID;
 
-async function listUsers(req, reply) {
+export async function listUsers(req, reply) {
   const users = this.mongo.db.collection("users");
 
   const result = await users.find({}).toArray();
@@ -8,7 +9,7 @@ async function listUsers(req, reply) {
   reply.send(result);
 }
 
-async function addUser(req, reply) {
+export async function addUser(req, reply) {
   const users = this.mongo.db.collection("users");
 
   const { name, age } = req.body;
@@ -16,7 +17,7 @@ async function addUser(req, reply) {
   const result = await users.insertOne(data);
   reply.code(201).send(result.ops[0]);
 }
-async function getUser(req, reply) {
+export async function getUser(req, reply) {
   const users = this.mongo.db.collection("users");
   const result = await users.findOne({ _id: new ObjectID(req.params.id) });
   if (result) {
@@ -24,7 +25,7 @@ async function getUser(req, reply) {
   }
   reply.code(500).send({ message: "Not found" });
 }
-async function updateUser(req, reply) {
+export async function updateUser(req, reply) {
   const users = this.mongo.db.collection("users");
 
   const { name, age } = req.body;
@@ -45,7 +46,8 @@ async function updateUser(req, reply) {
     message: `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s)`,
   });
 }
-async function deleteUser(req, reply) {
+
+export async function deleteUser(req, reply) {
   const users = this.mongo.db.collection("users");
 
   const result = await users.deleteOne({ _id: ObjectID(req.params.id) });
@@ -53,4 +55,5 @@ async function deleteUser(req, reply) {
   reply.send("Could not delete. ");
 }
 
-module.exports = { listUsers, getUser, addUser, updateUser, deleteUser };
+// module.exports = { listUsers, getUser, addUser, updateUser, deleteUser };
+// export default { listUsers, getUser, addUser, updateUser, deleteUser };

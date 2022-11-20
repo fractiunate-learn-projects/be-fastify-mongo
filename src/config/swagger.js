@@ -1,6 +1,6 @@
 exports.options = {
     info: {
-      title: 'Test swagger',
+      title: 'Fastify API - Swagger',
       description: 'Testing the Fastify swagger API',
       version: '0.1.0'
     },

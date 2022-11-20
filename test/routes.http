@@ -1,0 +1,17 @@
+### GET ALL USERS
+GET http://localhost:8080/users HTTP/1.1
+
+
+### Add User
+
+POST http://localhost:8080/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "David",
+    "age": 30
+}
+### DELETE User
+
+DELETE  http://localhost:8080/users/637242a523bb0919f68cb1f7 HTTP/1.1
+Content-Type: application/json

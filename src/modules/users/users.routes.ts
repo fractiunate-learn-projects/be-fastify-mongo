@@ -1,10 +1,4 @@
-const {
-  listUsers,
-  addUser,
-  getUser,
-  updateUser,
-  deleteUser,
-} = require("../controllers/users.controller");
+import { listUsers, addUser, getUser, updateUser, deleteUser } from './users.controller'
 
 const getUsersopts = {
   schema: {
@@ -100,11 +94,10 @@ const deleteUserOpts = {
   handler: deleteUser,
 };
 
-async function routes(fastify, options) {
+export async function routes(fastify: any, options: any) {
   fastify.get("/users", getUsersopts);
   fastify.post("/users", postUserOpts);
   fastify.get("/users/:id", getUserOpts);
   fastify.put("/users/:id", updateItemOpts);
   fastify.delete("/users/:id", deleteUserOpts);
 }
-module.exports = routes;
